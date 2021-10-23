@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zomato</title>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> 
+        <link rel="stylesheet" href="../font/css/all.css">  
+        <style>
+            .container {
+                align-items: center;
+                color:green;  
+                box-shadow: -8px -8px 2px;
+                opacity: 0.8;
+            }
+            h1 {
+                margin-left: 300px;
+                transition: 2s;
+                transform: scale3d(1,1,1);
+
+            }
+            h1:hover{
+                transform: scale3d(1.5,1.5,1.5);
+                transition: 2s;
+            }
+           
+        </style>
+        <script>
+            function OrderClick(){
+                document.getElementById("lblName").innerHTML=document.getElementById("txtName").value;
+                document.getElementById("lblMobile").innerHTML=document.getElementById("txtMobile").value;
+
+                var mealName="";
+                var mealCost=0;
+                var adonName="";
+                var adonCost=0;
+                var optnan=document.getElementById("optnan");
+                var optrice=document.getElementById("optrice");
+                var optPaneer=document.getElementById("optPaneer");
+                var optTikka=document.getElementById("optTikka");
+                if(optnan.checked)
+                {
+                    mealName=optnan.value;
+                    mealCost=200;
+                }
+                if(optrice.checked)
+                {
+                    mealName=optrice.value;
+                    mealCost=250;
+                }
+                if(optPaneer.checked)
+                {
+                    adonName+=optPaneer.value+"<br>";
+                    adonCost=100;
+                    mealCost=mealCost+adonCost;
+                }
+                if(optTikka.checked)
+                {
+                    adonName+=optTikka.value + "<br>";
+                    adonCost=80;
+                    mealCost=mealCost+adonCost;
+                }
+                document.getElementById("lblMeal").innerHTML=mealName;
+                document.getElementById("lbladon").innerHTML=adonName;
+                document.getElementById("lblAmount").innerHTML="&#8377;"+mealCost;
+
+            }   
+        </script>
+    </head>
+    <body class="container-fluid">
+        <nav class="navbar navbar-expand-lg  ms-2 ">
+            <a href="#" class="navbar-brand">
+                <img src="../assets/zomato.png" height="60" width="150">
+            </a>
+            
+            <div class="input-group">
+                <input type="text" Required placeholder="search for meal you love" class="form-control">
+                 <button class="btn btn-warning">
+                   <span class="fa fa-search"></span>
+                     </button>
+                       </div>
+                       <div class="btn-group">
+                        <div class="dropdown">
+                           <button class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"><span class="fa fa-user"></span> login</button>
+                           <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Sign-in"> <span class="fas fa-sign-in-alt"></span> Sign-in</a></li>
+                           </ul>
+                           
+                             <div class="modal" style="background-image: url(../assets/login.jpg)" id="Sign-in">
+                               <div class="modal-dialog">
+                               <div class="modal-content" style="background-color:rgba(170, 150, 20, 0.5)">
+                                 <div class="modal-header">
+                                   <h2> Sign-in </h2>
+                                   <button class="btn-close btn-danger" data-bs-dismiss="modal"></button>
+                                 </div>
+                                 <div class="modal-body">
+                          
+                                   <dl>
+                                     <dt> User mail id</dt>
+                                     <dd><input type="Email"></dd>
+                                     <dt> Password</dt>
+                                     <dd><input type="password" minlength="4" maxlength="10"></dd>
+                                     <dt> User Name</dt>
+                                     <dd><input type="text"></dd>
+                                     <dt> Contact Number</dt>
+                                     <dd><input type="number"></dd>
+                                  </dl>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button class="btn-success"> Sign-in </button>
+                                    <button class="btn-danger" data-bs-dismiss="modal"> Cancel </button>
+                                 </div>
+                               </div>
+                             </div>
+                           </div>
+                      
+        </nav>
+        <div class="container">
+            <h1 class="tranform-effect">  GOOD FOOD GOOD MOOD</h1>
+        </div>
+        <div class="carousel carousel-dark slide" data-bs-ride="carousel" id="topBanner">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="5000">
+                    <img src="../assets/food banner4.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-item " data-bs-interval="4000">
+                    <img src="../assets/food banner6.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="../assets/food banner5.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="../assets/food banner3.jpg" class="d-block w-100">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="../assets/food banner2.jpg" class="d-block w-100">
+                </div>
+              
+            </div>
+            <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#topBanner">
+             <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#topBanner">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+            <div class="carousel-indicators">
+                <button data-bs-target="#topBanner" data-bs-slide-to="0" class="active"></button>
+                <button data-bs-target="#topBanner" data-bs-slide-to="1"></button>
+                <button data-bs-target="#topBanner" data-bs-slide-to="2"></button>
+                <button data-bs-target="#topBanner" data-bs-slide-to="3"></button>
+                <button data-bs-target="#topBanner" data-bs-slide-to="4"></button>
+            </div>
+          </div>
+          <div class="accordion" id="zomatoform">
+              <!--item-1-->
+              <div class="accordion-item">
+                  <h2 class="accordion-header d-grid">
+                    <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#customer">
+                        Customer info
+                    </button>
+                  </h2>
+                  <div id="Customer" class="collapse show accordion-collapse" data-bs-parent="#zomatoform">
+                      <div class="accordion-body">
+                          <dl>
+                              <dt> Customer Name</dt>
+                              <dd>
+                                  <input id="txtName" type="text" class="form-control">
+                              </dd>
+                              <dt> Mobile Number</dt>
+                              <dd>
+                                  <input id="txtMobile" type="text" class="form-control">
+                              </dd>
+                          </dl>
+                      </div>
+                  </div>
+              </div>
+              <!--item-2-->
+              <div class="accordion-item">
+                <h2 class="accordion-header d-grid">
+                    <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#meal">
+                        Choose your meal
+                    </button>
+                  </h2>
+                  <div id="meal" class="collapse show accordion-collapse" data-bs-parent="#zomatoform">
+                      <div class="accordion-body">
+                          <div class="row">
+                              <div class="col text-center">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <img src="../assets/meal.jpg" width="200" height="200">
+
+                                      </div>
+                                      <div class="card-footer">
+                                        <input type="radio" id="optnan" name="meal" value="OMG Naan"> OMG Naan &#8377;200/-
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col text-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="../assets/meal2.jpg" width="200" height="200">
+
+                                    </div>
+                                    <div class="card-footer">
+                                      <input type="radio" id="optrice" name="meal" value="OMG rice"> OMG rice &#8377;250/-
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+               </div>
+               </div>
+              </div>
+              <!--item-3-->
+              <div class="accordion-item">
+                <h2 class="accordion-header d-grid">
+                    <button class="btn btn-danger" data-bs-toggle="collapse" data-bs-target="#adon">
+                        Choose AD-ON's
+                    </button>
+                  </h2>
+                  <div id="adon" class="collapse show accordion-collapse" data-bs-parent="#zomatoform">
+                      <div class="accordion-body">
+                          <div class="row">
+                              <div class="col text-center">
+                                  <div class="card">
+                                      <div class="card-body">
+                                          <img src="../assets/paneer butter masala.jpg" width="200" height="200">
+
+                                      </div>
+                                      <div class="card-footer">
+                                        <input type="checkbox" id="optPaneer" value="paneer butter masala"> paneer butter masala &#8377;100/-
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col text-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img src="../assets/paneer-tikka.jpg" width="200" height="200">
+
+                                    </div>
+                                    <div class="card-footer">
+                                      <input type="checkbox" id="optTikka" value="paneer tikka"> Paneer tikka &#8377;80/-
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+               </div>
+               </div>
+              </div>
+              <div class="d-grid">
+                  <button onclick="OrderClick()" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#summary"> Place Order</button>
+                <div class="modal fade-show" id="summary">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2> Bill Summary</h2>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th> Customer Name</th>
+                                            <td id="lblName"></td>
+                                        </tr>
+                                        <tr>
+                                            <th> Mobile Number</th>
+                                            <td id="lblMobile"></td>
+                                        </tr>
+                                        <tr>
+                                            <th> Selected Meal</th>
+                                            <td id="lblMeal"></td>
+                                        </tr>
+                                        <tr>
+                                            <th> selected AD-ON's</th>
+                                            <td id="lbladon"></td>
+                                        </tr>
+                                        <tr>
+                                            <th> Bill Amount</th>
+                                            <td id="lblAmount"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button data-bs-dismiss="modal" class="btn btn-primary"> OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </body>
+</html>
